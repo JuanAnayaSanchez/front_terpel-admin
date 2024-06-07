@@ -10,12 +10,21 @@ import { CardModule } from 'primeng/card';
 import { ScoresComponent } from './views/scores/scores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TreeTableModule } from 'primeng/treetable';
+import { CodesComponent } from './views/codes/codes.component';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { KeyFilterModule } from 'primeng/keyfilter'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ScoresComponent
+    ScoresComponent,
+    CodesComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +33,14 @@ import { TreeTableModule } from 'primeng/treetable';
     BrowserAnimationsModule,
     CardModule,
     HttpClientModule,
-    TreeTableModule
+    TreeTableModule,
+    TableModule,
+    ButtonModule,
+    TagModule,
+    DialogModule,
+    InputTextModule,
+    FormsModule,
+    KeyFilterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

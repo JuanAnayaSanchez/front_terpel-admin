@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
 
   onActiveItemChange(event: MenuItem) {
       this.activeItem = event;
-      console.log(this.activeItem);
   }
 
   activateLast() {

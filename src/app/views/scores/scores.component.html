@@ -1,7 +1,14 @@
+<div class="mb-3">
+    <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+</div>
 <p-treeTable #tableScoreMain [value]="files" [paginator]="true" [rows]="10" [scrollable]="true" scrollHeight="700px" [tableStyle]="{'min-width':'50rem'}">
     <ng-template pTemplate="header">
         <tr>
             <th>Nombre</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th>Ciudad</th>
+            <th>N Identificacion</th>
             <th>Puntaje</th>
             <th>Fecha</th>
         </tr>
@@ -12,6 +19,10 @@
                 <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
                 {{ rowData.name }}
             </td>
+            <td>{{ rowData.mail }}</td>
+            <td>{{ rowData.phone }}</td>
+            <td>{{ rowData.city }}</td>
+            <td>{{ rowData.identification_number }}</td>
             <td>{{ rowData.total_points }}</td>
             <td>{{ rowData.date }}</td>
         </tr>

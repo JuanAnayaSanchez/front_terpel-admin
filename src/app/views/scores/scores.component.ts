@@ -41,6 +41,10 @@ export class ScoresComponent implements OnInit{
       data: {
         id: user.id,
         name: user.name,
+        mail: user.mail,
+        phone:user.phone,
+        city: user.city,
+        identification_number:user.identification_number,
         total_points: user.total_points,
         date: user.date
       },
@@ -63,5 +67,9 @@ export class ScoresComponent implements OnInit{
       leaf: true,
     }));
     return children;
+  }
+
+  async reset(){
+    await this.getUsers();
   }
 }
