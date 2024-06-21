@@ -17,7 +17,9 @@ import { TagModule } from 'primeng/tag';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { KeyFilterModule } from 'primeng/keyfilter'
+import { KeyFilterModule } from 'primeng/keyfilter';
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,10 @@ import { KeyFilterModule } from 'primeng/keyfilter'
     DialogModule,
     InputTextModule,
     FormsModule,
-    KeyFilterModule
+    KeyFilterModule,
+    ToastModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

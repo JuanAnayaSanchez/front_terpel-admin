@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { lastValueFrom } from 'rxjs';
 import { CodesData } from 'src/app/models/select-codes';
 import { CodesService } from 'src/app/services/codes.service';
 
@@ -13,10 +15,10 @@ export class CodesComponent implements OnInit {
   first = 0;
 
   rows = 10;
-  valueCodeGenerate: number | undefined;
+  valueCodeGenerate: number = 0;
   visible: boolean = false;
 
-  constructor(private codesService:CodesService) {}
+  constructor(private codesService:CodesService, private messageServices:MessageService) {}
 
   async ngOnInit() {
     await this.getCodes()
@@ -58,7 +60,16 @@ export class CodesComponent implements OnInit {
     this.visible = true;
   }
 
-  createCodes(){
+  async createCodes(){
     console.log(this.valueCodeGenerate);
+    lastValueFrom(this.codesService.createCodes(this.valueCodeGenerate))
+    .then(response => {
+      if(response.data){
+        this.getCodes();
+        this.valueCodeGenerate = 0;
+        this.messageServices.add({ severity: 'success', summary: 'Creado', detail: 'se crearon los codigos con exito' });
+        this.visible = false;
+      }
+    })
   }
 }

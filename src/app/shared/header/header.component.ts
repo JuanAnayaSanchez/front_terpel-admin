@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
       this.items = [
-          { label: 'Puntajes', icon: 'pi pi-fw pi-users' },
+          { label: 'Usuarios', icon: 'pi pi-fw pi-users' },
           { label: 'Codigos', icon: 'pi pi-fw pi-receipt' }
       ];
 

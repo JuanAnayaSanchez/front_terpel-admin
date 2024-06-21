@@ -35,10 +35,12 @@
 <p-dialog header="Creacion de codigos" [(visible)]="visible" [style]="{width: '30vw'}">
     <div class="flex flex-column gap-2">
         <label htmlFor="username">Cantidad Codigos</label>
-        <input pInputText pKeyFilter="int" maxlength="2" (ngModel)="valueCodeGenerate" />
+        <input pInputText type="number" [(ngModel)]="valueCodeGenerate" maxlength="2" />
         <small id="username-help">Ingrese la cantidad de codigos que quiere generar</small>
     </div>
     
     <p-button styleClass="mt-3" label="Crear" icon="pi pi-ticket" size="small" (onClick)="createCodes()"></p-button>
 </p-dialog>
+
+<p-toast></p-toast>
 

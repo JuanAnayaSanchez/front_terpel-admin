@@ -10,3 +10,7 @@ export interface CodesData {
     date: string
     userName: any
 }
+
+export interface DataCodeGenerate{
+    prmnumber_codes:number
+}
