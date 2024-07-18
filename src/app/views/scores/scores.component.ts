@@ -1,8 +1,13 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { TreeNode } from 'primeng/api';
 import { lastValueFrom } from 'rxjs';
-import { UserData } from 'src/app/models/select-users';
+import { DataSelectUsers, UserData } from 'src/app/models/select-users';
 import { SelectUsersService } from 'src/app/services/users.service';
+
+interface Column {
+  field: string;
+  header: string;
+}
 
 @Component({
   selector: 'app-scores',
@@ -10,30 +15,31 @@ import { SelectUsersService } from 'src/app/services/users.service';
   styleUrls: ['./scores.component.css']
 })
 export class ScoresComponent implements OnInit{
-  files: TreeNode[] = [];
   
+  items: UserData[] = [] 
 
   constructor(private userService: SelectUsersService, private cdr: ChangeDetectorRef) {}
 
+  columns:Column[] = [];
+
   async ngOnInit() {
     await this.getUsers();
+    console.log(this.columns)
   }
 
   async getUsers() {
-    const response = await lastValueFrom(this.userService.getUsers());
-    let rows = this.transformUsersToTreeNodes(response.data.data);
-    
-    // Crear un array de promesas para todas las llamadas a getChildren
-    const promises = rows.map(row => this.getChildren(row.data.id));
-    
-    // Esperar a que todas las promesas se resuelvan
-    const childrenArrays = await Promise.all(promises);
-  
-    // Asignar los resultados a cada fila
-    rows.forEach((row, index) => {
-      row.children = childrenArrays[index];
-    });
-    this.files = rows;
+    await lastValueFrom(this.userService.getUsers()).then(data => this.items = data.data.data);
+
+    this.columns = [
+      {field:'id',header:'Id'},
+      {field:'name',header:'Nombre'},
+      {field:'mail',header:'Correo'},
+      {field:'phone',header:'Telefono'},
+      {field:'city',header:'Ciudad'},
+      {field:'identification_number',header:'Identificacion'},
+      {field:'total_points',header:'Puntaje'},
+      {field:'date',header:'Fecha'},
+    ]
   }
 
   transformUsersToTreeNodes(users: UserData[]): TreeNode[] {
@@ -49,24 +55,8 @@ export class ScoresComponent implements OnInit{
         date: user.date
       },
       children: [],
-      leaf: (Number.parseInt(user.total_points) > 0) ? false : true
+      leaf: true 
     }));
-  }
-
-  async getChildren(id: number): Promise<TreeNode[]> {
-    const filter = { prmuser_id_input: id };
-    let children: TreeNode[] = [];
-    const response = await lastValueFrom(this.userService.getUserChildren(filter));
-    children = response.data.map(child => ({
-      data: {
-        name: child.name,
-        total_points: child.points,
-        date: child.date
-      },
-      children: [],
-      leaf: true,
-    }));
-    return children;
   }
 
   async reset(){
