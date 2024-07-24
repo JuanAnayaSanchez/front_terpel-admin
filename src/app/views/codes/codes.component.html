@@ -18,16 +18,19 @@
             <th style="width:20%">Codigo</th>
             <th style="width:20%">Estado</th>
             <th style="width:20%">Fecha</th>
+            <th style="width:20%">Acciones</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-code>
         <tr>
             <td>{{ code.id }}</td>
-            <td>{{ code.userName }}</td>
+            <td *ngIf="code.userName != null">{{ code.userName }}</td>
+            <td *ngIf="code.userName == null"><p-tag styleClass="mr-2 text-center" severity="warning" value="No asignado"></p-tag></td>
             <td>{{ code.name }}</td>
             <td *ngIf="code.used == 0"><p-tag styleClass="mr-2 text-center" severity="success" value="sin redimir"></p-tag></td>
             <td *ngIf="code.used == 1"><p-tag styleClass="mr-2 text-center" severity="danger" value="redimido"></p-tag></td>
             <td>{{ code.date }}</td>
+            <td><p-button severity="danger" [disabled]="code.used ? true : false" label="Borrar" (click)="deleteCode(code.id,code.name)"></p-button></td>
         </tr>
     </ng-template>
 </p-table>

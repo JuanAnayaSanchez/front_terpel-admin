@@ -61,7 +61,6 @@ export class CodesComponent implements OnInit {
   }
 
   async createCodes(){
-    console.log(this.valueCodeGenerate);
     lastValueFrom(this.codesService.createCodes(this.valueCodeGenerate))
     .then(response => {
       if(response.data){
@@ -70,6 +69,14 @@ export class CodesComponent implements OnInit {
         this.messageServices.add({ severity: 'success', summary: 'Creado', detail: 'se crearon los codigos con exito' });
         this.visible = false;
       }
+    })
+  }
+
+  async deleteCode(id:number,name:string){
+    lastValueFrom(this.codesService.deleteCode(id))
+    .then(response => {
+      this.getCodes()
+      this.messageServices.add({ severity: 'success', summary: 'Eliminado', detail: `se elimino el codigos ${name}` });
     })
   }
 }

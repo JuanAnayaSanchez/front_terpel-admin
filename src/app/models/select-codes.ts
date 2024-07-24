@@ -14,3 +14,7 @@ export interface CodesData {
 export interface DataCodeGenerate{
     prmnumber_codes:number
 }
+
+export interface DataCodeDelete{
+    prmCodeId:number
+}
