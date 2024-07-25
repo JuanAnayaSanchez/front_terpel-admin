@@ -1,6 +1,7 @@
 <div class="mb-3">
     <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
     <p-button styleClass="ml-3" label="Crear codigo" (click)="showDialog()"></p-button>
+    <p-button styleClass="ml-3" severity="danger" label="Borrar codigos" (click)="showDialogDeleteCodes()"></p-button>
 </div>
 <p-table
     [value]="codes"
@@ -45,5 +46,12 @@
     <p-button styleClass="mt-3" label="Crear" icon="pi pi-ticket" size="small" (onClick)="createCodes()"></p-button>
 </p-dialog>
 
+<p-dialog header="Eliminar Codigos" [(visible)]="visibleDeleteCodesModal" [style]="{width: '30vw'}">
+    <div class="flex flex-column gap-2">
+        <label>¿Esta seguro de eliminar los codigos?</label>
+        <small>Se eliminara todos los codigos que no han sido asignados</small>
+    </div>
+    <p-button styleClass="mt-3" severity="danger" label="Eliminar" icon="pi pi-trash" size="small" (onClick)="deleteAllCodes()"></p-button>
+</p-dialog>
 <p-toast></p-toast>
 

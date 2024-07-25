@@ -29,4 +29,8 @@ export class CodesService {
     }
     return this.http.post<ApiResponse<boolean>>(`${this.baseUrl}DeleteCode`,body)
   }
+
+  deleteAllCodes():Observable<ApiResponse<boolean>>{
+    return this.http.get<ApiResponse<boolean>>(`${this.baseUrl}DeleteAllCodes`)
+  }
 }

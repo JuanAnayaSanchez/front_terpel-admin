@@ -17,6 +17,7 @@ export class CodesComponent implements OnInit {
   rows = 10;
   valueCodeGenerate: number = 0;
   visible: boolean = false;
+  visibleDeleteCodesModal: boolean = false;
 
   constructor(private codesService:CodesService, private messageServices:MessageService) {}
 
@@ -60,6 +61,10 @@ export class CodesComponent implements OnInit {
     this.visible = true;
   }
 
+  showDialogDeleteCodes(){
+    this.visibleDeleteCodesModal = true;
+  }
+
   async createCodes(){
     lastValueFrom(this.codesService.createCodes(this.valueCodeGenerate))
     .then(response => {
@@ -69,6 +74,8 @@ export class CodesComponent implements OnInit {
         this.messageServices.add({ severity: 'success', summary: 'Creado', detail: 'se crearon los codigos con exito' });
         this.visible = false;
       }
+    }).catch(response => {
+      this.messageServices.add({ severity: 'error', summary: 'Error', detail: `error al ejecutar la peticion` });
     })
   }
 
@@ -77,6 +84,19 @@ export class CodesComponent implements OnInit {
     .then(response => {
       this.getCodes()
       this.messageServices.add({ severity: 'success', summary: 'Eliminado', detail: `se elimino el codigos ${name}` });
+    }).catch(response => {
+      this.messageServices.add({ severity: 'error', summary: 'Error', detail: `error al ejecutar la peticion` });
+    })
+  }
+
+  async deleteAllCodes(){
+    lastValueFrom(this.codesService.deleteAllCodes())
+    .then(response => {
+      this.getCodes()
+      this.visibleDeleteCodesModal = false;
+      this.messageServices.add({ severity: 'success', summary: 'Eliminados', detail: `se eliminaron los codigos no asignados` });
+    }).catch(response => {
+      this.messageServices.add({ severity: 'error', summary: 'Error', detail: `error al ejecutar la peticion` });
     })
   }
 }
