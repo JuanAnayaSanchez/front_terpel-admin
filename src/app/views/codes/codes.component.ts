@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { lastValueFrom } from 'rxjs';
 import { CodesData } from 'src/app/models/select-codes';
+import { Column } from 'src/app/models/tree-table';
 import { CodesService } from 'src/app/services/codes.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { CodesService } from 'src/app/services/codes.service';
 })
 export class CodesComponent implements OnInit {
   codes: CodesData[] = [];
+  columns:Column[] = [];
 
   first = 0;
 
@@ -22,7 +24,14 @@ export class CodesComponent implements OnInit {
   constructor(private codesService:CodesService, private messageServices:MessageService) {}
 
   async ngOnInit() {
-    await this.getCodes()
+    await this.getCodes();
+    this.columns = [
+      {field:'id',header:'Id'},
+      {field:'userName',header:'Nombre'},
+      {field:'name',header:'Codigo'},
+      {field:'used',header:'Estado'},
+      {field:'date',header:'Fecha'},
+    ]
   }
 
   async getCodes(){
