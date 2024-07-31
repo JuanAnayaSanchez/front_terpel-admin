@@ -20,13 +20,15 @@ import { FormsModule } from '@angular/forms';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
+import { PointsComponent } from './views/points/points.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ScoresComponent,
-    CodesComponent
+    CodesComponent,
+    PointsComponent
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,6 @@ export class ScoresComponent implements OnInit{
 
   async ngOnInit() {
     await this.getUsers();
-    console.log(this.columns)
   }
 
   async getUsers() {
@@ -35,7 +34,6 @@ export class ScoresComponent implements OnInit{
       {field:'name',header:'Nombre'},
       {field:'mail',header:'Correo'},
       {field:'phone',header:'Telefono'},
-      {field:'city',header:'Ciudad'},
       {field:'identification_number',header:'Identificacion'},
       {field:'total_points',header:'Puntaje'},
       {field:'date',header:'Fecha'},

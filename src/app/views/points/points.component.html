@@ -1,0 +1,29 @@
+<div class="mb-3">
+    <!-- <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button> -->
+    <ng-template pTemplate="caption">
+        <div class="flex">
+            <!-- <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button> -->
+        </div>
+    </ng-template>
+</div>
+<p-table #dt [columns]="columns" [value]="items" [paginator]="true" [rows]="10" [scrollable]="true" scrollHeight="700px" [tableStyle]="{'min-width':'50rem'}">
+    <ng-template pTemplate="caption">
+        <div class="flex">
+            <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{ col.header }}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
