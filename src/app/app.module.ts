@@ -46,7 +46,7 @@ import { PointsComponent } from './views/points/points.component';
     FormsModule,
     KeyFilterModule,
     ToastModule,
-  ],
+],
   providers: [MessageService],
   bootstrap: [AppComponent]
 })
