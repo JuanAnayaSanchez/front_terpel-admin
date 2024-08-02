@@ -21,6 +21,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import { PointsComponent } from './views/points/points.component';
+import { ReferalsComponent } from './views/referals/referals.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PointsComponent } from './views/points/points.component';
     HeaderComponent,
     ScoresComponent,
     CodesComponent,
-    PointsComponent
+    PointsComponent,
+    ReferalsComponent
   ],
   imports: [
     BrowserModule,

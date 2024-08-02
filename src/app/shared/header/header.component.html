@@ -20,3 +20,9 @@
         <app-points></app-points>
     </p-card>
 </div>
+
+<div class="card mt-5 ml-8 mr-8 ">
+    <p-card *ngIf="activeItem?.label == 'Referidos'" styleClass="backgroundCustom">
+        <app-referals></app-referals>
+    </p-card>
+</div>

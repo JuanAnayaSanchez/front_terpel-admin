@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
       this.items = [
           { label: 'Usuarios', icon: 'pi pi-fw pi-users' },
           { label: 'Codigos', icon: 'pi pi-fw pi-receipt' },
-          { label: 'Puntaje', icon: 'pi pi-fw pi-verified' }
+          { label: 'Puntaje', icon: 'pi pi-fw pi-verified' },
+          { label: 'Referidos', icon: 'pi pi-fw pi-user-plus' },
       ];
 
       this.activeItem = this.items[0];
