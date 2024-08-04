@@ -3,9 +3,9 @@
 <p-table #dt [columns]="columns" [value]="items" [paginator]="true" [rows]="10" [scrollable]="true" scrollHeight="700px" [tableStyle]="{'min-width':'50rem'}">
     <ng-template pTemplate="caption">
         <div class="flex">
-            <!-- <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text mr-3"></p-button> -->
+            <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text mr-3"></p-button>
             <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
-            <!-- <button type="button" pButton pRipple icon="pi pi-filter" (click)="viewFilterModal()" class="mr-2"></button> -->
+            <button type="button" pButton pRipple icon="pi pi-filter" (click)="viewFilterModal()" class="mr-2"></button>
         </div>
     </ng-template>
     <ng-template pTemplate="header" let-columns>
@@ -24,7 +24,7 @@
     </ng-template>
 </p-table>
 
-<!-- <p-dialog header="Filtrar" [(visible)]="visibleFilterPointsModal" [style]="{width: '30vw'}">
+<p-dialog header="Filtrar" [(visible)]="viewFilter" [style]="{width: '30vw'}">
     <div class="flex flex-column gap-2">
         <label htmlFor="username">Filtrar Puntaje</label>
         <input pInputText  type="text" maxlength="50" [(ngModel)]="valueNameOrPhone" />
@@ -32,4 +32,4 @@
     </div>
     <p-button styleClass="mt-3" label="Filtrar" icon="pi pi-filter-fill" size="small" (onClick)="getFilterPoints()"></p-button>
 </p-dialog>
-<p-toast /> -->
+<p-toast />

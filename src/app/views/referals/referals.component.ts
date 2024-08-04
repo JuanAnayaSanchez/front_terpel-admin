@@ -17,6 +17,8 @@ export class ReferalsComponent implements OnInit{
   constructor(private referalsService:ReferalsService,private messageService:MessageService){}
 
   columns:Column[] = [];
+  valueNameOrPhone: any = null;
+  viewFilter:boolean = false;
 
   async ngOnInit() {
     this.columns = [
@@ -26,6 +28,10 @@ export class ReferalsComponent implements OnInit{
       {field:'referral_name',header:'Referido'},
       {field:'date',header:'Fecha'},
     ]
+    await this.getReferals(null);
+  }
+
+  async reset(){
     await this.getReferals(null);
   }
 
@@ -44,5 +50,19 @@ export class ReferalsComponent implements OnInit{
     }).catch(resp => {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: `error al ejecutar la peticion` });
     })
+  }
+
+  viewFilterModal(){
+    this.viewFilter = true;
+  }
+
+  async getFilterPoints(){
+    if(this.valueNameOrPhone == null){
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: `debe ingresar un nombre o un número de teléfono.` });
+    }else{
+      this.getReferals(this.valueNameOrPhone);
+      this.valueNameOrPhone = null;
+      this.viewFilter = false;
+    }
   }
 }
