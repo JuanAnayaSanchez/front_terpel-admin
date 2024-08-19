@@ -22,6 +22,7 @@ import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import { PointsComponent } from './views/points/points.component';
 import { ReferalsComponent } from './views/referals/referals.component';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReferalsComponent } from './views/referals/referals.component';
     ScoresComponent,
     CodesComponent,
     PointsComponent,
-    ReferalsComponent
+    ReferalsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

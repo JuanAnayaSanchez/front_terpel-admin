@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../models/api-response';
 import { DataSelectCodes, DataCodeGenerate, DataCodeDelete } from '../models/select-codes';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { DataSelectCodes, DataCodeGenerate, DataCodeDelete } from '../models/sel
 export class CodesService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'https://terpel.evirtual.live/mobil_API/';
+  baseUrl: string = environment.infoApi;
 
   getCodes():Observable<ApiResponse<DataSelectCodes>>{
     return this.http.get<ApiResponse<DataSelectCodes>>(`${this.baseUrl}SelectCodes`)

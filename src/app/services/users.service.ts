@@ -4,6 +4,7 @@ import { ApiResponse } from '../models/api-response';
 import { DataSelectUsers } from '../models/select-users';
 import {DataScoreReferrals} from '../models/select-score-referrals';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 export class SelectUsersService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'https://terpel.evirtual.live/mobil_API/';
+  baseUrl: string = environment.infoApi;
 
   getUsers():Observable<ApiResponse<DataSelectUsers>>{
     return this.http.get<ApiResponse<DataSelectUsers>>(`${this.baseUrl}SelectUsers`)
