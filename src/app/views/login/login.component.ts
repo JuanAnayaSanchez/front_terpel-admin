@@ -24,7 +24,7 @@ export class LoginComponent {
     }
     lastValueFrom(this.segurityService.login(this.username,this.password)).then(response => {
       if(response.data != null){
-        localStorage.setItem('id_token',response.data);
+        this.segurityService.setSession(response.data);
         this.router.navigate(['main']);
         this.messageService.add({ severity: 'success', summary: 'Login', detail: `Se inicio sesión correctamente` });
       }else{
