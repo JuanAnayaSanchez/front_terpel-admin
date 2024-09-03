@@ -36,6 +36,7 @@ export class ScoresComponent implements OnInit{
       {field:'phone',header:'Telefono'},
       {field:'identification_number',header:'Identificacion'},
       {field:'total_points',header:'Puntaje'},
+      {field:'cityName',header:'Locación'},
       {field:'date',header:'Fecha'},
     ]
   }
@@ -47,7 +48,7 @@ export class ScoresComponent implements OnInit{
         name: user.name,
         mail: user.mail,
         phone:user.phone,
-        city: user.city,
+        city: user.cityName,
         identification_number:user.identification_number,
         total_points: user.total_points,
         date: user.date

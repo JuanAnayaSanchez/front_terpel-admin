@@ -3,5 +3,6 @@ export interface ReferalsData{
     points:                number;
     user_name:             string;
     referral_name:         string;
+    locate:                string;
     date:                  Date;
 }

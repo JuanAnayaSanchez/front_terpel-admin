@@ -7,7 +7,7 @@ export interface UserData {
     name:                  string;
     mail:                  string;
     phone:                 string;
-    city:                  string;
+    cityName:                  string;
     identification_number: number;
     date:                  Date;
     total_points:          string;
