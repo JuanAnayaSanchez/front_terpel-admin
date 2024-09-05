@@ -27,7 +27,7 @@ export class PointsComponent implements OnInit{
       {field:'id',header:'Id'},
       {field:'points',header:'Puntaje'},
       {field:'name',header:'Usuario'},
-      {field:'locate',header:'Locación'},
+      {field:'locate',header:'Punto de venta'},
       {field:'date',header:'Fecha'},
     ]
     await this.getPoints(null)

@@ -26,7 +26,7 @@ export class ReferalsComponent implements OnInit{
       {field:'points',header:'Puntaje'},
       {field:'user_name',header:'Usuario'},
       {field:'referral_name',header:'Referido'},
-      {field:'locate',header:'Locación'},
+      {field:'locate',header:'Punto de venta'},
       {field:'date',header:'Fecha'},
     ]
     await this.getReferals(null);

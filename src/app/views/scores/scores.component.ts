@@ -37,6 +37,7 @@ export class ScoresComponent implements OnInit{
       {field:'identification_number',header:'Identificacion'},
       {field:'total_points',header:'Puntaje'},
       {field:'cityName',header:'Locación'},
+      {field:'documentType',header:'Tipo documento'},
       {field:'date',header:'Fecha'},
     ]
   }
