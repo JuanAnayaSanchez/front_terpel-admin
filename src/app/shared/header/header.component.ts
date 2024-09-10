@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api'
+import { SegurityService } from 'src/app/services/segurity.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,8 @@ import {MenuItem} from 'primeng/api'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  constructor(private segurityService:SegurityService){}
   items: MenuItem[] | undefined;
 
   activeItem: MenuItem | undefined;
@@ -17,6 +20,7 @@ export class HeaderComponent implements OnInit {
           { label: 'Codigos', icon: 'pi pi-fw pi-receipt' },
           { label: 'Puntaje', icon: 'pi pi-fw pi-verified' },
           { label: 'Referidos', icon: 'pi pi-fw pi-user-plus' },
+          { label: 'Reportes', icon: 'pi pi-fw pi-folder-open' },
       ];
 
       this.activeItem = this.items[0];
@@ -28,5 +32,9 @@ export class HeaderComponent implements OnInit {
 
   activateLast() {
       this.activeItem = (this.items as MenuItem[])[(this.items as MenuItem[]).length - 1];
+  }
+
+  closeSecion(){
+    this.segurityService.logout();
   }
 }

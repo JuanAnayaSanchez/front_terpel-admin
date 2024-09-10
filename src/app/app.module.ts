@@ -23,6 +23,7 @@ import {MessageService} from 'primeng/api';
 import { PointsComponent } from './views/points/points.component';
 import { ReferalsComponent } from './views/referals/referals.component';
 import { LoginComponent } from './views/login/login.component';
+import { ReportComponent } from './views/report/report.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './views/login/login.component';
     CodesComponent,
     PointsComponent,
     ReferalsComponent,
-    LoginComponent
+    LoginComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

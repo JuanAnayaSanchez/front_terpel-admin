@@ -54,4 +54,13 @@ export class SegurityService {
       this.router.navigate(['login']);
     }
   }
+
+  public logout(): void {
+    // Elimina el token de sesión y la fecha de expiración del almacenamiento
+    sessionStorage.removeItem('id_token');
+    sessionStorage.removeItem('expires_at');
+  
+    // Redirige al usuario a la página de inicio de sesión u otra página
+    this.router.navigate(['login']);
+  }
 }
