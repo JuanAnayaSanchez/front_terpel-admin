@@ -24,6 +24,7 @@ import { PointsComponent } from './views/points/points.component';
 import { ReferalsComponent } from './views/referals/referals.component';
 import { LoginComponent } from './views/login/login.component';
 import { ReportComponent } from './views/report/report.component';
+import { GruposComponent } from './views/grupos/grupos.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReportComponent } from './views/report/report.component';
     PointsComponent,
     ReferalsComponent,
     LoginComponent,
-    ReportComponent
+    ReportComponent,
+    GruposComponent
   ],
   imports: [
     BrowserModule,

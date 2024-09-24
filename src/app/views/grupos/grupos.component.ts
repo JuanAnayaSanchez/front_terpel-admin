@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { ReportData } from 'src/app/models/select-report';
 import { Column } from 'src/app/models/tree-table';
 import { ReportsService } from 'src/app/services/reports.service';
+import { SelectUsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-report',
-  templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css']
+  selector: 'app-grupos',
+  templateUrl: './grupos.component.html',
+  styleUrls: ['./grupos.component.css']
 })
-export class ReportComponent implements OnInit {
+export class GruposComponent {
   columns:Column[] = [];
   items: ReportData[] = [];
 
-  constructor(private reportsService:ReportsService){}
+  constructor(private userService:SelectUsersService){}
 
   async ngOnInit() {
     this.columns = [
@@ -22,21 +23,18 @@ export class ReportComponent implements OnInit {
       {field:'mail',header:'Correo'},
       {field:'phone',header:'Celular'},
       {field:'identification_number',header:'Numero Identificacion'},
-      {field:'userDate',header:'Fecha Usuario'},
+      {field:'date',header:'Fecha Usuario'},
       {field:'cityName',header:'Ciudad'},
       {field:'documentType',header:'Tipo Documento'},
-      {field:'code',header:'Codigo'},
-      {field:'codeDate',header:'Fecha Redimido'},
-      {field:'scorePoints',header:'Puntaje'},
-      {field:'scoreDate',header:'Fecha Puntaje'},
-      {field:'scoreLocate',header:'Punto de Venta'},
+      {field:'total_points',header:'Puntos'},
+      {field:'type',header:'Tipo'},
     ]
 
-    await this.getReports()
+    await this.getGrupos()
   }
 
-  async getReports(){
-    lastValueFrom(this.reportsService.getReport()).then(response =>{
+  async getGrupos(){
+    lastValueFrom(this.userService.getGroupUsers()).then(response =>{
       this.items = response.data
     })
   }

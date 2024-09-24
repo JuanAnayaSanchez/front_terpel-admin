@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { ApiResponse } from '../models/api-response';
-import { DataSelectUsers } from '../models/select-users';
+import { DataSelectUsers, UserGroupData } from '../models/select-users';
 import {DataScoreReferrals} from '../models/select-score-referrals';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
@@ -22,6 +22,12 @@ export class SelectUsersService {
     return this.http.post<ApiResponse<DataScoreReferrals[]>>(
       `${this.baseUrl}SelectScoreReferrals`,
       filter
+    )
+  }
+
+  getGroupUsers():Observable<ApiResponse<UserGroupData[]>>{
+    return this.http.get<ApiResponse<UserGroupData[]>>(
+      `${this.baseUrl}SelectGroupUsers`
     )
   }
 }
