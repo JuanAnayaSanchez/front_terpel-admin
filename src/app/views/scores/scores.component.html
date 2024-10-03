@@ -9,13 +9,15 @@
     </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
+            <th>Id</th> <!-- Columna incremental -->
             <th *ngFor="let col of columns">
                 {{ col.header }}
             </th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
         <tr>
+            <td>{{ rowIndex + 1 }}</td> <!-- Columna incremental -->
             <td *ngFor="let col of columns">
                 {{ rowData[col.field] }}
             </td>

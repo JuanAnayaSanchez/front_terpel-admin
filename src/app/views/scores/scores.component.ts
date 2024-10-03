@@ -30,7 +30,6 @@ export class ScoresComponent implements OnInit{
     await lastValueFrom(this.userService.getUsers()).then(data => this.items = data.data.data);
 
     this.columns = [
-      {field:'id',header:'Id'},
       {field:'name',header:'Nombre'},
       {field:'mail',header:'Correo'},
       {field:'phone',header:'Telefono'},
