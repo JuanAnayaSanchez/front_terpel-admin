@@ -28,6 +28,7 @@ export class GruposComponent {
       {field:'documentType',header:'Tipo Documento'},
       {field:'total_points',header:'Puntos'},
       {field:'type',header:'Tipo'},
+      {field:'cdlMasterlub',header:'Masterlub'},
     ]
 
     await this.getGrupos()
