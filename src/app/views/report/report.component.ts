@@ -30,6 +30,7 @@ export class ReportComponent implements OnInit {
       {field:'scorePoints',header:'Puntaje'},
       {field:'scoreDate',header:'Fecha Puntaje'},
       {field:'scoreLocate',header:'Punto de Venta'},
+      {field:'invoiceName',header:'Factura'},
     ]
 
     await this.getReports()
