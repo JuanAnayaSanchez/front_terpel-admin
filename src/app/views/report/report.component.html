@@ -17,7 +17,7 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
             <td *ngFor="let col of columns">
-                {{ rowData[col.field] }}
+                {{ rowData[col.field] !== null && rowData[col.field] !== undefined ? rowData[col.field] : 'Null' }}
             </td>
         </tr>
     </ng-template>

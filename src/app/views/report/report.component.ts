@@ -32,6 +32,7 @@ export class ReportComponent implements OnInit {
       {field:'scoreLocate',header:'Punto de Venta'},
       {field:'invoiceName',header:'Factura'},
       {field:'codeRegistered',header:'Codigo Registrado'},
+      {field:'codeRegisteredLocate',header:'Locacion Codigo Registrado'},
     ]
 
     await this.getReports()
