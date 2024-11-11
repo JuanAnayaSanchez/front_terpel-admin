@@ -27,12 +27,14 @@ export class ReportComponent implements OnInit {
       {field:'documentType',header:'Tipo Documento'},
       {field:'code',header:'Codigo'},
       {field:'codeDate',header:'Fecha Redimido'},
+      {field:'codeRegistered',header:'Estado Registro Codigo'},
+      {field:'codeRegisteredLocate',header:'Locacion Registro Codigo'},
+      {field:'Type',header:'Tipo'},
       {field:'scorePoints',header:'Puntaje'},
       {field:'scoreDate',header:'Fecha Puntaje'},
       {field:'scoreLocate',header:'Punto de Venta'},
       {field:'invoiceName',header:'Factura'},
-      {field:'codeRegistered',header:'Codigo Registrado'},
-      {field:'codeRegisteredLocate',header:'Locacion Codigo Registrado'},
+      {field:'codeRegistered',header:'Codigo Registrado'}
     ]
 
     await this.getReports()
